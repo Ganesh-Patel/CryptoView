@@ -11,7 +11,7 @@ checkbox.addEventListener("change", () => {
     body.setAttribute('data-theme', newTheme);
 });
 
-const url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false";
+const url = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false";
 
 fetch(url)
     .then(response => response.json())
@@ -19,7 +19,7 @@ fetch(url)
         const coinsContainer = document.querySelector('.coins-container');
         coinsContainer.innerHTML = ''; // Clear any existing content
 
-        data.slice(0, 6).forEach(coin => {
+        data.slice(0, 15).forEach(coin => {
             const coinDiv = document.createElement('div');
             coinDiv.classList.add('top-coin');
 
