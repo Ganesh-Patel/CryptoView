@@ -68,8 +68,8 @@ searchbtn1.addEventListener('click', searchEvent);
 function searchEvent() {
     console.log('+++');
     mainContainer.innerHTML = ''; // Clear main container content
-    mainContainer.style.minHeight='100vh';
-    mainContainer.style.maxHeight='auto';
+    mainContainer.style.minHeight = '100vh';
+    mainContainer.style.maxHeight = 'auto';
 
     // Create header div with title and search input
     const headerDiv = document.createElement('div');
@@ -215,8 +215,8 @@ function showCoinDetails(coinId) {
                 .then(response => response.json())
                 .then(data => {
                     const ctx = document.getElementById('priceChart').getContext('2d');
-                    
-                    // Process the prices data with Moment.js
+
+                    // Process the prices data
                     const prices = data.prices.map(price => ({
                         x: moment(price[0]).toDate(), // Convert timestamp to Date object
                         y: price[1]
@@ -252,7 +252,9 @@ function showCoinDetails(coinId) {
                                         text: 'Price (USD)'
                                     }
                                 }
-                            }
+                            },
+                            responsive: true,
+                            maintainAspectRatio: false
                         }
                     });
                 });
@@ -262,8 +264,3 @@ function showCoinDetails(coinId) {
         });
 }
 
-// Chart.defaults.global.plugins.datalabels = {
-//     formatter: function(value, context) {
-//         return moment(value).format('MMM DD');
-//     }
-// };
