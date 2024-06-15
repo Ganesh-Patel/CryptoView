@@ -474,5 +474,16 @@ footer {
 
 /* Chart Container */
 .chart-container {
-    margin-top: 20px;
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Center the canvas */
+.chart-container canvas {
+    display: block;
+    width: 100%;
+    height: 20%;
 }
